@@ -28,6 +28,11 @@ module.exports = function(grunt) {
         dest: 'www/dist/<%= pkg.name %>.js'
       }
     },
+    version: {
+      dist: {
+        src: 'www/dist/<%= pkg.name %>.js',
+      }
+    },
     uglify: {
       options: {
         banner: '<%= banner %>'
@@ -80,6 +85,7 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-version');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -88,6 +94,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['compass', 'jshint', /*'qunit',*/ 'concat', 'uglify']);
+  grunt.registerTask('default', ['compass', 'jshint', /*'qunit',*/ 'concat', 'uglify', 'version']);
 
 };

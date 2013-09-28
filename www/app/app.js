@@ -1,3 +1,5 @@
+var version = '0.0.0';
+
 var pgApp = {
   // Application Constructor
   initialize: function() {
